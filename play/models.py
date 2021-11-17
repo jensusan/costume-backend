@@ -10,7 +10,7 @@ class Play(models.Model):
     director_notes = models.CharField(max_length=300)
 
     def __str__(self):
-        return self.name
+        return self.title
 
 class Character(models.Model):
     name = models.CharField(max_length=100)
@@ -26,10 +26,11 @@ class Character(models.Model):
 class Todo(models.Model):
     play_id = models.ForeignKey(Play, related_name='todos', on_delete=models.CASCADE)
     task = models.CharField(max_length=255)
-    completed = models.BooleanField
+    completed = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.name
+        return self.task
+
 
 class Tracker(models.Model):
     scene = models.CharField(max_length=100)
@@ -40,4 +41,5 @@ class Tracker(models.Model):
     play_id = models.ForeignKey(Play, related_name='tracker', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return self.scene
+    
