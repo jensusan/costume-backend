@@ -18,13 +18,13 @@ class Character(models.Model):
     notes = models.CharField(max_length=300)
     sketches = models.ImageField(upload_to ='uploads/', blank=True, null=True)
     reference_img = models.ImageField(upload_to='uploads/', blank=True, null=True)
-    play_id = models.ForeignKey(Play, related_name='characters', on_delete=models.CASCADE)
+    play = models.ForeignKey(Play, related_name='characters', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
 
 class Todo(models.Model):
-    play_id = models.ForeignKey(Play, related_name='todos', on_delete=models.CASCADE)
+    play = models.ForeignKey(Play, related_name='todos', on_delete=models.CASCADE)
     task = models.CharField(max_length=255)
     completed = models.BooleanField(default=False)
 
@@ -38,7 +38,7 @@ class Tracker(models.Model):
     change = models.CharField(max_length=100)
     notes = models.CharField(max_length=300)
     duration = models.CharField(max_length=100)
-    play_id = models.ForeignKey(Play, related_name='tracker', on_delete=models.CASCADE)
+    play = models.ForeignKey(Play, related_name='trackers', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.scene

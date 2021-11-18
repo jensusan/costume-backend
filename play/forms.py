@@ -12,18 +12,18 @@ class CharacterForm(forms.ModelForm):
 
     class Meta:
         model = Character
-        fields =('name', 'actor', 'sketches', 'reference_img', 'notes', 'play_id')
+        fields =('name', 'actor', 'sketches', 'reference_img', 'notes', 'play')
 
 
 class TodoForm(forms.ModelForm):
 
     class Meta:
         model = Todo
-        fields =('task', 'completed', 'play_id')
+        fields =('task', 'completed', 'play')
 
 
 class TrackerForm(forms.ModelForm):
 
     class Meta:
         model = Tracker
-        fields =('scene', 'character', 'change', 'notes', 'play_id')
+        fields =('scene', 'character', 'change', 'notes', 'play')
