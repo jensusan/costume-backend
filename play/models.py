@@ -5,7 +5,7 @@ from django.db.models.fields import CharField
 class Play(models.Model):
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
-    reference_img = models.ImageField(upload_to='uploads/', blank=True, null=True)
+    reference_img = models.CharField(max_length=500, null=True, blank=True)
     concept = models.CharField(max_length=255)
     director_notes = models.CharField(max_length=300)
 
@@ -16,8 +16,8 @@ class Character(models.Model):
     name = models.CharField(max_length=100)
     actor = models.CharField(max_length=100)
     notes = models.CharField(max_length=300)
-    sketches = models.ImageField(upload_to ='uploads/', blank=True, null=True)
-    reference_img = models.ImageField(upload_to='uploads/', blank=True, null=True)
+    sketches = models.CharField(max_length=255, null=True, blank=True)
+    reference_img = models.CharField(max_length=255, null=True, blank=True)
     play = models.ForeignKey(Play, related_name='characters', on_delete=models.CASCADE)
 
     def __str__(self):
