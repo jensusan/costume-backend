@@ -140,3 +140,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.AllowAny']
 }
+
+if DEBUG:
+    MIDDLEWARE = [
+        'whitenoise.middleware.WhiteNoiseMiddleware',
+    ] + MIDDLEWARE
+    INSTALLED_APPS = [
+        'whitenoise.runserver_nostatic',
+    ] + INSTALLED_APPS
