@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import django_heroku
+import os
 
 from pathlib import Path
 
@@ -46,7 +47,7 @@ INSTALLED_APPS = [
 
 CORS_ALLOWED_ORIGINS = [
     #front end address
-    'http://localhost:3000'
+    'https://vibrant-boyd-ddc6cc.netlify.app/'
 ]
 
 MIDDLEWARE = [
@@ -88,10 +89,11 @@ WSGI_APPLICATION = 'costumeapi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'costumes',
-        "USER": 'costumeuser',
-        'PASSWORD': 'costumes',
-        'HOST': 'localhost'
+        'NAME': os.environ.get('costumes'),
+        "USER": os.environ.get('costumeuser'),
+        'PASSWORD': os.environ.get('costumes'),
+        'HOST': 'db',
+        'PORT': 5432
     }
 }
 
