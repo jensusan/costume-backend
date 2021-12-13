@@ -13,6 +13,7 @@ whitenoise = "*"
 gunicorn = "*"
 django-heroku = "*"
 docker-compose = "*"
+pytz = "*"
 
 [dev-packages]
 
