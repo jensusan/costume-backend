@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
 CORS_ALLOWED_ORIGINS = [
     # #front end address
+    'https://vibrant-boyd-ddc6cc.netlify.app/'
 ]
 
 MIDDLEWARE = [
